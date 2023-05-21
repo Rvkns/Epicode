@@ -1,0 +1,17 @@
+- aprire il file ORDINI
+- cliccare su DATI -> DA TABELLA -> Selezionare tutte le colonne della tabella da A a L
+- Si aprirà l'EDITOR DI POWER QUERY
+- rimuovere le righe sopra l'intestazione
+- nella sezione HOME cliccare su USA LA PRIMA RIGA COME INTESTAZIONE
+- dare il nome DATA al primo campo
+- eliminare le colonne vuote e la colonna COD
+- rimuovere le righe vuote
+- eliminare gli spazi vuoti dalle colonne COLLABORATORE, CATEGORIA, PRODOTTO
+- Impostare il formato corretto per ogni campo
+- Calcolare TOTALE=Prezzo unitario*Quantità
+- Estrarre in una nuova colonna dal nome CODICE solo le cifre di PROG
+- Dividere la colonna Collaboratore in due colonne Cognome e Nome
+- Correggere eventuali errori in CATEGORIA e PRODOTTO
+- Creare una nuova colonna dove scrivere TERMINATO se QUANTITA' = Null altrimenti non scrivere niente
+- Nella sezione HOME cliccare su CHIUDI E APPLICA
+- Salvare il file excel

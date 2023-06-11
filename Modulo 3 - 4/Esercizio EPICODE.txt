@@ -1,0 +1,64 @@
+Dato il seguente schema scrivere le interrogazioni di seguito:
+AEROPORTO(Città, Nazione, NumPiste)
+VOLO(IDVolo,GiornoSett,CittaPart,OraPart,CittaArr,OraArr,TipoAereo)
+AEREO(TipoAereo,NumPasseggeri,QtaMerci)
+
+1) Le città con un aeroporto di cui non è noto il numero di piste;
+2) I tipi di aereo usati nei voli che partono da Torino;
+3) Le città da cui partono voli diretti a Bologna
+4) Le città da cui parte e arriva il volo con codice AZ274;
+5) Il tipo di aereo, il giorno della settimana, l'orario di partenza la cui città di partenza inizia per B e contiene O e la cui città di arrivo termina con A e contiene E
+
+________________________________________________________
+CREAZIONE DELLE TABELLE DA INTERROGARE:
+
+
+CREATE TABLE AEROPORTO (
+	Città VARCHAR(50),
+	Nazione VARCHAR(50),
+	NumPiste INT, 
+	CittàID INT,
+	PRIMARY KEY (CittàID)
+);
+
+CREATE TABLE VOLO (
+	IDVolo INT,
+	GiornoSett VARCHAR(10),
+	CittaPart VARCHAR(50),
+	OraPart TIME,
+	CittaArr VARCHAR(50),
+	OraArr TIME,
+	TipoAereo VARCHAR(50),
+	PRIMARY KEY (IDVolo)
+);
+
+CREATE TABLE AEREO (
+	TipoAereo VARCHAR(50),
+	NumPasseggeri INT,
+	QtaMerci INT,
+	IDAereo INT,
+	PRIMARYKEY (IDAereo)
+);
+__________________________________________________________
+
+QUERY:
+
+1)SELECT Città
+FROM AEROPORTO
+WHERE NumPiste IS NULL;
+
+2)SELECT DISTINCT TipoAereo
+FROM VOLO
+WHERE CittaPart = 'Torino';
+
+3)SELECT DISTINCT CittaPart
+FROM VOLO
+WHERE CittaArr = 'Bologna';
+
+4)SELECT CittaPart, CittaArr
+FROM VOLO
+WHERE IDVolo = 'AZ274';
+
+5)SELECT TipoAereo, GiornoSett, OraPart
+FROM VOLO
+WHERE CittaPart LIKE 'B%O%' AND CittaArr LIKE '%A%E';
